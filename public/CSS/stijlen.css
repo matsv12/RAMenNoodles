@@ -1,0 +1,289 @@
+/*home page*/
+img{
+    max-width: 100%;
+}
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0; 
+  padding: 0;
+}
+
+.logo {
+  height: 150px;
+  width: auto;   
+  display: block;
+  margin: 0; 
+}
+
+
+
+.startBalk {
+  padding: 1.5rem;
+  width: 100%;
+  margin: 0;
+
+}
+
+.bedrijfNaam {
+  color: white;
+  font-family: 'Arial Black', sans-serif;
+  margin: 0;
+}
+
+.zoekForm {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#zoek {
+  border: none;
+  border-radius: 25px;
+  width: 70%;
+  max-width: 600px;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+}
+
+.bovensteRijHomePage{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.winkelWagen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.winkelWagenIcon {
+  color: white;
+}
+
+.winkelWagenWoord {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.bovensteRij{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigatieRij{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4rem; 
+  margin-top: 4rem; 
+}
+
+.navigatieRij  a{
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem; 
+  font-weight: 600; 
+}
+
+/*contact page*/
+
+.bovensteRijContact {
+ text-align: center;
+}
+
+.contactHeader {
+  width: 100%;
+  margin: 0;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+header{
+  background-color: #2d6df6; 
+}
+
+.navigatieRijContact{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4rem; 
+  margin-top: 2rem; 
+}
+
+.navigatieRijContact a{
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem; 
+  font-weight: 600; 
+}
+
+.contact_page{
+  color: white;
+  margin-top: 0;
+}
+
+iframe{
+width: 500px;
+height: 300px;
+margin-bottom: 20px;
+}
+
+.Locatie{
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  margin-top: 100px;
+  gap: 12rem;
+  font-family: "Luckiest Guy", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+#name{
+  height: 50px;
+  width: 400px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#Email{
+  height: 50px;
+  width: 400px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#Message{
+  height: 50px;
+  width: 400px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.vraagStelling{
+  text-align: center;
+  display: block;
+  box-shadow: 0px 0px 10px;
+  border-radius: 5%;
+  border-color: blue;
+  padding: 30px;
+  max-width: fit-content;
+}
+
+button{
+  margin-top: 10px ;
+  display: block;
+  border: none;
+  padding: 15px;
+  width: 30%;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+}
+
+.button5{
+  display: flex;
+  justify-content: end;
+}
+
+.Kaart{
+  box-shadow: 0px 0px 10px;
+  border-radius: 5%;
+  padding: 10px;
+  max-width: 700px;
+}
+
+.laatsteDeel3Pagina3{
+  display: flex;
+  align-items: center;
+  font-family: "Luckiest Guy", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  flex-wrap: wrap;
+  max-width: 100%;
+  margin-top: 100px;
+  gap: 10rem;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.deel3H3{
+  font-size: 1.7rem;
+  padding-bottom: 3px;
+}
+
+.deel3 {
+  text-align: center;
+  font-family: "Luckiest Guy", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.diffColor2{
+  color: #2d6df6;
+}
+/*bestelling pagina*/
+
+.bovensteRijBestelling {
+  text-align: center;
+}
+
+.bestellingHeader {
+  width: 100%;
+  margin: 0;
+  padding: 1.5rem;
+}
+
+/*javascript*/
+
+.hardware-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.hardware-card {
+  width: 160px;
+  height: 160px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 0px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.hardware-card:hover {
+  transform: scale(1.05);
+}
+
+.hardware-img {
+  object-fit: cover;
+}
+
+.hardware-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  color: #2d6df6;
+  font-family: "Luckiest Guy", cursive;
+}
+
