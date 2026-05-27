@@ -22,7 +22,6 @@
         }   
     }
 
-    // hier hebben we onze gefilterde producten
 
     const container = document.getElementById("productsContainer");
 
@@ -38,6 +37,40 @@
 
         container.appendChild(card);
     });
+    const zoekterm = document.querySelector("#zoek");
 
+    zoekterm.addEventListener("input", function () {
+        let toetsaanslag = zoekterm.value.toLowerCase();
+        let filter = [];
+
+        
+        if (toetsaanslag === "") {
+            toonProducten(filteredProducts);
+            return;
+        }
+
+        for (let i = 0; i < filteredProducts.length; i++) {
+            if (filteredProducts[i].name.toLowerCase().includes(toetsaanslag)) {
+                filter.push(filteredProducts[i]);
+            }
+        }
+
+        toonProducten(filter);
+    });
+    function toonProducten(lijst) {
+    container.innerHTML = "";
+    lijst.forEach(product => {
+        const card = document.createElement("a");
+        card.href = `product.html?id=${product.id}`;
+        card.classList.add("product-card");
+
+        card.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" class="product-img">
+            <h3 class="product-title">${product.name}</h3>
+        `;
+
+        container.appendChild(card);
+    });
+    }   
 })()
     

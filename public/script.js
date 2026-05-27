@@ -64,9 +64,8 @@ async function getAllCategories() {
 }
 
 
-(async () => {
-    const hardwareCategories = await getAllCategories();
-    console.log(hardwareCategories);
+
+
     // const allCategories = [];
     // const categoryImages = [];
     // const allProducts = await getAllProducts();
@@ -85,18 +84,6 @@ async function getAllCategories() {
 
 
     
-const container = document.getElementById("hardwareContainer");
-
-
-hardwareCategories.forEach(item => {
-    const card = document.createElement("a");
-    card.href = `producten.html?category=${encodeURIComponent(item.title)}`;
-    card.classList.add("hardware-card");
-
-    card.innerHTML = `
-        <img src="${item.image}" alt="${item.title}" class="hardware-img">
-        <h3 class="hardware-title">${item.title}</h3>
-    `;
 
     // card.addEventListener("click", async () => {
     //     const gewensteCategorie = item.title;
@@ -109,11 +96,50 @@ hardwareCategories.forEach(item => {
     //     }
     //     console.log(filteredProducts);
 
-    // })
+    //
 
-    container.appendChild(card);
+(async () => {
+    let hardwareCategories = await getAllCategories();
+    const container = document.getElementById("hardwareContainer");
+    const zoekterm = document.querySelector("#zoek");
+
+    function toonCategorieën(lijst) {
+        container.innerHTML = "";
+        lijst.forEach(item => {
+            const card = document.createElement("a");
+            card.href = `producten.html?category=${encodeURIComponent(item.title)}`;
+            card.classList.add("hardware-card");
+
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="hardware-img">
+                <h3 class="hardware-title">${item.title}</h3>
+            `;
+
+            container.appendChild(card);
+        });
+    }
+
+    toonCategorieën(hardwareCategories);
+
+zoekterm.addEventListener("input", function () {
+    let toetsaanslag = zoekterm.value.toLowerCase();
+    let filter = [];
+
+    if (toetsaanslag === "") {
+        toonCategorieën(hardwareCategories);
+        return;
+    }
+
+    for (let i = 0; i < hardwareCategories.length; i++) {
+        if (hardwareCategories[i].title.toLowerCase().includes(toetsaanslag)) {
+            filter.push(hardwareCategories[i]);
+        }
+    }
+
+    toonCategorieën(filter);
 });
-})()
+
+})();
 
 
 
