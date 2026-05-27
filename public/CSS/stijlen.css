@@ -333,4 +333,55 @@ button{
   gap: 20px;
 }
 
+.info-sectie {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 100px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+
+.kader_over-ons,
+.kader_promotie {
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+.kader_over-ons:hover,
+.kader_promotie:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+
+.kader_over-ons h2,
+.kader_promotie h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+
+.kader_over-ons p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+.kader_promotie img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  background-color: #ddd;
+}
+
 

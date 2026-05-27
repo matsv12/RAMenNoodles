@@ -142,45 +142,33 @@ zoekterm.addEventListener("input", function () {
 })();
 
 
+(async () => {
+    let featuredProducts = await getFeaturedProducts();
+    const container = document.getElementById("featuredContainer");
+
+    function toonFeatured(lijst) {
+        container.innerHTML = "";
+        lijst.forEach(item => {
+            const card = document.createElement("a");
+            card.href = `product.html?id=${encodeURIComponent(item.id)}`;
+            card.classList.add("featured-card");
+
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="featured-img">
+                <h3 class="featured-title">${item.title}</h3>
+            `;
+
+            container.appendChild(card);
+        });
+    }
+
+    toonFeatured(featuredProducts);
+})();
+
+// api functie van featured products
+async function getFeaturedProducts() {
+    const res = await fetch("/api/products?featured=true");
+    return await res.json();
+}
 
 
-
-
-
-
-
-
-
-
-
-/*
-
-// Lijst met hardware categorieën
-const hardwareCategories = [
-    { title: "CPU", img: "Afbeeldingen/cpu.jpg" },
-    { title: "GPU", img: "" },
-    { title: "Moederborden", img: "" },
-    { title: "RAM", img: "" },
-    { title: "Opslag", img: "" },
-    { title: "Voedingen", img: "" }
-];
-
-
-const container = document.getElementById("hardwareContainer");
-
-
-hardwareCategories.forEach(item => {
-    const card = document.createElement("div");
-    card.classList.add("hardware-card");
-
-    card.innerHTML = `
-        <img src="${item.img}" alt="${item.title}" class="hardware-img">
-        <h3 class="hardware-title">${item.title}</h3>
-    `;
-
-    container.appendChild(card);
-});
-
-
-
-*/
