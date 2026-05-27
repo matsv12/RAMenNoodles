@@ -100,11 +100,14 @@ async function getAllCategories() {
 
 (async () => {
     let hardwareCategories = await getAllCategories();
-    const container = document.getElementById("hardwareContainer");
+    let featuredProducts = await getFeaturedProducts();
+
+    const categorieContainer = document.getElementById("hardwareContainer");
+    const featuredContainer = document.getElementById("featuredContainer");
     const zoekterm = document.querySelector("#zoek");
 
     function toonCategorieën(lijst) {
-        container.innerHTML = "";
+        categorieContainer.innerHTML = "";
         lijst.forEach(item => {
             const card = document.createElement("a");
             card.href = `producten.html?category=${encodeURIComponent(item.title)}`;
@@ -115,60 +118,50 @@ async function getAllCategories() {
                 <h3 class="hardware-title">${item.title}</h3>
             `;
 
-            container.appendChild(card);
+            categorieContainer.appendChild(card);
         });
     }
 
     toonCategorieën(hardwareCategories);
 
-zoekterm.addEventListener("input", function () {
-    let toetsaanslag = zoekterm.value.toLowerCase();
-    let filter = [];
-
-    if (toetsaanslag === "") {
-        toonCategorieën(hardwareCategories);
-        return;
-    }
-
-    for (let i = 0; i < hardwareCategories.length; i++) {
-        if (hardwareCategories[i].title.toLowerCase().includes(toetsaanslag)) {
-            filter.push(hardwareCategories[i]);
-        }
-    }
-
-    toonCategorieën(filter);
-});
-
-})();
-
-
-(async () => {
-    let featuredProducts = await getFeaturedProducts();
-    const container = document.getElementById("featuredContainer");
-
     function toonFeatured(lijst) {
-        container.innerHTML = "";
+        featuredContainer.innerHTML = "";
         lijst.forEach(item => {
             const card = document.createElement("a");
             card.href = `product.html?id=${encodeURIComponent(item.id)}`;
             card.classList.add("featured-card");
 
             card.innerHTML = `
-                <img src="${item.image}" alt="${item.title}" class="featured-img">
-                <h3 class="featured-title">${item.title}</h3>
+                <img src="${item.image}" alt="${item.name}" class="featured-img">
+                <h3 class="featured-title">${item.name}</h3>
             `;
 
-            container.appendChild(card);
+            featuredContainer.appendChild(card);
         });
     }
 
     toonFeatured(featuredProducts);
+
+    zoekterm.addEventListener("input", function () {
+        let toetsaanslag = zoekterm.value.toLowerCase();
+        let filter = []; 
+
+        if (toetsaanslag === "") {
+            toonFeatured(featuredProducts);
+            return;
+        }
+
+        for (let i = 0; i < featuredProducts.length; i++) {
+            if (featuredProducts[i].name.toLowerCase().includes(toetsaanslag)) {
+                filter.push(featuredProducts[i]);
+            }
+        }
+
+        toonFeatured(filter);
+    });
+
 })();
 
-// api functie van featured products
-async function getFeaturedProducts() {
-    const res = await fetch("/api/products?featured=true");
-    return await res.json();
-}
+
 
 
