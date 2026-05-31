@@ -395,38 +395,38 @@ button{
 }
 
 .featured-card {
-display: flex;
-flex-direction: column;
-align-items: center;
-text-decoration: none;
-background: white;
-border-radius: 12px;
-width: 260px;
-height: 260px;
-margin: 15px;
-box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  background: white;
+  border-radius: 12px;
+  width: 260px;
+  height: 260px;
+  margin: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: 0.3s;
 }
 
 .featured-card:hover {
-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .featured-img {
-width: 100%;
-height: 200px;
-object-fit: cover;
-border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .featured-title{
-font-size: 1.6rem;
-margin-top: 5px;
-color: #2d6df6;
-font-family: "Luckiest Guy", cursive;
-text-align: center;
-font-weight: 700;
-text-decoration: none;
+  font-size: 1.6rem;
+  margin-top: 5px;
+  color: #2d6df6;
+  font-family: "Luckiest Guy", cursive;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .featured-titelH2 {
@@ -439,11 +439,79 @@ text-decoration: none;
 }
 
 #featuredContainer {
-display: flex;
-flex-wrap: wrap;     
-justify-content: center;
-align-items: center;
-gap: 20px;           
-margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;     
+  justify-content: center;
+  align-items: center;
+  gap: 20px;           
+  margin-top: 20px;
 }
+
+
+.pd-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 40px;
+  color: white;
+}
+
+
+.pd-container {
+  display: flex;
+  gap: 100px; 
+  max-width: 1300px;
+  margin: 40px auto;
+}
+
+
+.pd-image-box {
+  border: 3px solid #ddd;
+  padding: 25px;
+  border-radius: 12px;
+  background: #fafafa;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+.pd-img {
+  width: 500px; 
+  height: auto;
+  display: block;
+}
+
+.pd-info {
+  flex: 1;
+  font-size: 1.3rem;
+}
+
+
+.pd-price {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+.pd-description {
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+
+.pd-btn {
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.pd-btn:hover {
+  background-color: #e56f00;
+  transform: scale(1.08);
+}
+
+
+
 

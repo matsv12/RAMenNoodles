@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+<h1>producten</h1>
+<div id="productenlijst"></div>
+
+</body>
+<script type="module">
+    let producten = [];
+/**
+ * @typedef {Object} ProductSummary
+ * @property {number} id - Numeric product identifier.
+ * @property {string} name - Product name.
+ * @property {number} price - Product price.
+ * @property {string|null} image - Image URL, or null if not set.
+ * @property {string[]} tags - Tag names.
+ * @property {string[]} categories - Category names.
+ */
+
+    async function laadProducten(){
+        /*
+        * @type {ProductSummary[]}
+        */
+        producten = await runQuery("SELECT id, ROUND(price * 1.21,2) as price, image FROM producten;")
+        console.log(producten[0])
+        const lijst = document.querySelector("#productenlijst")
+        lijst.innerHTML = "";
+        for (let product of producten) {
+           let html = `<p>${product.name} - ${product.price}</p> <img src="${product.image}" alt = "${product.name}"> `;
+           lijst.innerHTML += html 
+        }
+    }
+laadProducten();
+</script>
+</html>

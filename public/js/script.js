@@ -1,4 +1,4 @@
-const URL = 'https://ramennoodles.vercel.app/api'
+/*const URL = 'https://ramennoodles.vercel.app/api'
 
 /**
  * @typedef {Object} ProductSummary
@@ -9,7 +9,7 @@ const URL = 'https://ramennoodles.vercel.app/api'
  * @property {string[]} tags - Tag names.
  * @property {string[]} categories - Category names.
  */
-
+/*
 /**
  * @typedef {Object} ProductDetail
  * @property {number} id - Numeric product identifier.
@@ -21,7 +21,7 @@ const URL = 'https://ramennoodles.vercel.app/api'
  * @property {string} shortDescription - Plaintext short description (HTML stripped).
  * @property {string} description - Plaintext description (HTML stripped).
  */
-
+/*
 /**
  * @typedef {Object} ProductCategory
  * @property {string} title - Category name
@@ -33,21 +33,21 @@ async function fetchJson(path) {
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${path}`);
     return res.json();
 }
-
+/*
 /**
  * @returns {Promise<ProductSummary[]>}
  */
 async function getFeaturedProducts() {
     return fetchJson('/products?featured=true');
 }
-
+/*
 /**
  * @returns {Promise<ProductSummary[]>}
  */
 async function getAllProducts() {
     return fetchJson('/products');
 }
-
+/*
 /**
  * @param {number|string} productId - Numeric product identifier.
  * @returns {Promise<ProductDetail>}
@@ -55,7 +55,7 @@ async function getAllProducts() {
 async function getProductDetail(productId) {
     return fetchJson(`/products/${productId}`);
 }
-
+/*
 /**
  * @returns {Promise<ProductCategory[]>}
  */
@@ -65,7 +65,7 @@ async function getAllCategories() {
 
 
 
-
+/*
     // const allCategories = [];
     // const categoryImages = [];
     // const allProducts = await getAllProducts();
@@ -162,6 +162,105 @@ async function getAllCategories() {
 
 })();
 
+*/
 
+const API = "http://localhost/RAMenNoodles/public/api.php";
+
+
+async function fetchSQL(sql) {
+    const res = await fetch(`${API}?sql=${encodeURIComponent(sql)}`);
+    const json = await res.json();
+    return json.data;
+}
+
+
+async function getFeaturedProducts() {
+    return fetchSQL(
+        "SELECT id, name, price, image, categorie_ID, description, featured FROM producten WHERE featured = 1"
+    );
+}
+
+async function getAllProducts() {
+    return fetchSQL(
+        "SELECT id, name, price, image, categorie_ID, description, featured FROM producten"
+    );
+}
+
+async function getProductDetail(id) {
+    return fetchSQL(
+        `SELECT id, name, price, image, categorie_ID, description, featured FROM producten WHERE id = ${id}`
+    );
+}
+
+async function getAllCategories() {
+    return fetchSQL(
+        "SELECT id, name, image, categorie_id FROM categories"
+    );
+}
+
+
+(async () => {
+    let hardwareCategories = await getAllCategories();
+    let featuredProducts = await getFeaturedProducts();
+
+    const categorieContainer = document.getElementById("hardwareContainer");
+    const featuredContainer = document.getElementById("featuredContainer");
+    const zoekterm = document.querySelector("#zoek");
+
+    function toonCategorieën(lijst) {
+        categorieContainer.innerHTML = "";
+        lijst.forEach(item => {
+            const card = document.createElement("a");
+            card.href = `producten.html?category=${encodeURIComponent(item.name)}`;
+            card.classList.add("hardware-card");
+
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" class="hardware-img">
+                <h3 class="hardware-title">${item.name}</h3>
+            `;
+
+            categorieContainer.appendChild(card);
+        });
+    }
+
+    toonCategorieën(hardwareCategories);
+
+    function toonFeatured(lijst) {
+        featuredContainer.innerHTML = "";
+        lijst.forEach(item => {
+            const card = document.createElement("a");
+            card.href = `product.html?id=${encodeURIComponent(item.id)}`;
+            card.classList.add("featured-card");
+
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" class="featured-img">
+                <h3 class="featured-title">${item.name}</h3>
+            `;
+
+            featuredContainer.appendChild(card);
+        });
+    }
+
+    toonFeatured(featuredProducts);
+
+    zoekterm.addEventListener("input", function () {
+        let toetsaanslag = zoekterm.value.toLowerCase();
+        let filter = []; 
+
+        if (toetsaanslag === "") {
+            toonFeatured(featuredProducts);
+            return;
+        }
+
+        for (let i = 0; i < featuredProducts.length; i++) {
+            if (featuredProducts[i].name.toLowerCase().includes(toetsaanslag)) {
+                filter.push(featuredProducts[i]);
+            }
+        }
+
+        toonFeatured(filter);
+    });
+
+})();
 
 
