@@ -1,4 +1,4 @@
-/*const URL = 'https://ramennoodles.vercel.app/api'
+/* const URL = 'https://ramennoodles.vercel.app/api'
 
 /**
  * @typedef {Object} ProductSummary
@@ -8,7 +8,7 @@
  * @property {string|null} image - Image URL, or null if not set.
  * @property {string[]} tags - Tag names.
  * @property {string[]} categories - Category names.
- */
+ 
 /*
 /**
  * @typedef {Object} ProductDetail
@@ -20,13 +20,13 @@
  * @property {string[]} categories - Category names.
  * @property {string} shortDescription - Plaintext short description (HTML stripped).
  * @property {string} description - Plaintext description (HTML stripped).
- */
+ 
 /*
 /**
  * @typedef {Object} ProductCategory
  * @property {string} title - Category name
  * @property {string|null} image - Image URL, or null if not set.
- */
+ 
 
 async function fetchJson(path) {
     const res = await fetch(`${URL}${path}`);
@@ -36,14 +36,14 @@ async function fetchJson(path) {
 /*
 /**
  * @returns {Promise<ProductSummary[]>}
- */
+
 async function getFeaturedProducts() {
     return fetchJson('/products?featured=true');
 }
 /*
 /**
  * @returns {Promise<ProductSummary[]>}
- */
+
 async function getAllProducts() {
     return fetchJson('/products');
 }
@@ -51,21 +51,18 @@ async function getAllProducts() {
 /**
  * @param {number|string} productId - Numeric product identifier.
  * @returns {Promise<ProductDetail>}
- */
+
 async function getProductDetail(productId) {
     return fetchJson(`/products/${productId}`);
 }
 /*
 /**
  * @returns {Promise<ProductCategory[]>}
- */
 async function getAllCategories() {
     return fetchJson('/categories');
 }
 
 
-
-/*
     // const allCategories = [];
     // const categoryImages = [];
     // const allProducts = await getAllProducts();
@@ -96,9 +93,9 @@ async function getAllCategories() {
     //     }
     //     console.log(filteredProducts);
 
-    //
+    // */
 
-(async () => {
+/* (async () => {
     let hardwareCategories = await getAllCategories();
     let featuredProducts = await getFeaturedProducts();
 
@@ -160,9 +157,9 @@ async function getAllCategories() {
         toonFeatured(filter);
     });
 
-})();
+})(); */
 
-*/
+
 
 const API = "http://localhost/RAMenNoodles/public/api.php";
 

@@ -1,4 +1,4 @@
-/*(async () => {
+/* (async () => {
     const URL = 'https://ramennoodles.vercel.app/api';
 
     async function fetchJson(path) {
@@ -34,7 +34,7 @@
     document.getElementById("productPrice").textContent = `Prijs: €${product.price}`;
     document.getElementById("productDescription").textContent = product.description || "Geen beschrijving beschikbaar.";
     document.getElementById("productCategories").textContent = product.categories.join(", ");
-})();*/
+})(); */
 
 
 (async () => {

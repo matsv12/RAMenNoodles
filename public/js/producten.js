@@ -1,4 +1,4 @@
-/*(async () => {
+/* (async () => {
     const URL = 'https://ramennoodles.vercel.app/api';
 
     async function fetchJson(path) {
@@ -66,7 +66,9 @@
         toonProducten(filter);
     });
 
-})();*/
+})(); */
+
+
 
 (async () => {
 
@@ -149,3 +151,4 @@
     });
 
 })();
+
