@@ -135,7 +135,7 @@
     }
 //hier toon je alle gefilterde producten voor als je zoekbalk gebruikt.
     toonProducten(filteredProducts);
-
+//hier luistert die naar een toetsaanslag en zoekt die naar de value van wat de gebruiker zoekt. vervolgens kijkt die als het leeg is toon je alles  anders toon je de gefilterde
     zoekterm.addEventListener("input", function () {
         let toetsaanslag = zoekterm.value.toLowerCase();
         if (toetsaanslag === "") {

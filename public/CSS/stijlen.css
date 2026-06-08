@@ -1,6 +1,12 @@
 /*home page*/
+
+/*uitleg flexbox: is voor elementen netjes naast of onder elkaar te plaatsen het doet dit door op een verticale of horizontale as te focussen. column is bv onder elkaar en row is naast elkaar je hebt 3 soorten flex: flex-grow, flex-shrink, flex-basis deze bepalen eigenlijk hoeveel ruimte een item krijgt binnen een flex container door een value te geven zullen de 3 eigenschappen shrink, grow en basis veranderen */
+
+/*uitleg grid: is makkelijker dan flexbox voor een volledige layout van een website het belangrijkste is eigenlijk grid-template-column en dit zorgt ervoor dat je kolommen kan maken die bv gelijk zijn als je het allemaal dezelfde waarde geeft een voorbeeld is: grid-template-column: 1fr 1fr 1fr en dat is dus 3 gelijke kolommen de fr staat voor: fractional unit dat betekend dat het een flexibel deel is of element.*/
+
+
 img{
-    max-width: 100%;
+  max-width: 100%;
 }
 
 body{
@@ -266,6 +272,10 @@ button{
   color: #2d6df6;
   font-family: "Luckiest Guy", cursive;
   overflow-wrap: anywhere;
+<<<<<<< HEAD
+=======
+  text-decoration: none;
+>>>>>>> 7e9cd12 (crud pagina, winkelwagen)
 }
 
 .product-card {
@@ -292,13 +302,24 @@ button{
 }
 
 .product-title {
+<<<<<<< HEAD
   font-size: 1.2rem;
+=======
+  display: flex;
+>>>>>>> 7e9cd12 (crud pagina, winkelwagen)
   margin-top: 5px;
   color: #2d6df6;
   font-family: "Luckiest Guy", cursive;
   text-align: center;
   font-weight: 700;
   overflow-wrap: anywhere;
+<<<<<<< HEAD
+=======
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
+>>>>>>> 7e9cd12 (crud pagina, winkelwagen)
 }
 
 #productsContainer {
@@ -362,6 +383,10 @@ button{
   margin: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   transition: 0.3s;
+<<<<<<< HEAD
+=======
+  text-decoration: none;
+>>>>>>> 7e9cd12 (crud pagina, winkelwagen)
 }
 
 .featured-card:hover {

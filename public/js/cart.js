@@ -27,6 +27,7 @@ function addToCart(product) {
 // om alle items weg te doen.
 function clearCart() {
     localStorage.removeItem(CART_KEY);
+<<<<<<< HEAD
 }
 
 // om alles te laten zien op het scherm
@@ -62,6 +63,45 @@ function renderCart() {
         </div>
     `;
 }
+=======
+}
+
+// om alles te laten zien op het scherm
+function renderCart() {
+    const cart = getCart();
+    const left = document.getElementById('cartContainer');
+    const right = document.getElementById('cartTotalBox');
+
+    if (cart.length === 0) {
+        left.innerHTML = "<p>Je winkelwagen is leeg.</p>";
+        right.innerHTML = "";
+        return;
+    }
+
+    // producten inhoud
+    left.innerHTML = cart.map(item => `
+        <div class="cart-item">
+            <img src="${item.image}" width="100">
+            <h3>${item.name}</h3>
+            <p>Prijs: €${item.price}</p>
+            <p>Aantal: ${item.quantity}</p>
+            <button onclick="removeItem(${item.id})">Verwijderen</button>
+        </div>
+    `).join('');
+
+    // totaalprijs berekenen
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    right.innerHTML = `
+    <div class="total-box">
+        <h2>Totaal</h2>
+        <p>€${total.toFixed(2)}</p>
+        <button onclick="pay()">Betalen</button>
+    </div>
+`;
+}
+
+>>>>>>> 7e9cd12 (crud pagina, winkelwagen)
 
 
 document.addEventListener("DOMContentLoaded", renderCart);
@@ -84,4 +124,12 @@ function removeItem(productId) {
     saveCart(cart);
     renderCart();
 }
+<<<<<<< HEAD
+=======
+function pay() {
+    alert("Je betaling is gelukt!");
+    clearCart();
+    renderCart();
+}
+>>>>>>> 7e9cd12 (crud pagina, winkelwagen)
 
