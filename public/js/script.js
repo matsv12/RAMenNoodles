@@ -170,40 +170,41 @@ async function fetchSQL(sql) {
     return json.data;
 }
 
-
+//bij deze haal je alle producten uit de database waar featured = 1 / true is
 async function getFeaturedProducts() {
     return fetchSQL(
         "SELECT id, name, price, image, categorie_ID, description, featured FROM producten WHERE featured = 1"
     );
 }
 
+//hier haal je alle producten uit de database
 async function getAllProducts() {
     return fetchSQL(
         "SELECT id, name, price, image, categorie_ID, description, featured FROM producten"
     );
 }
-
+//hier haal je de productendetails uit de database dus specifiek 1 product
 async function getProductDetail(id) {
     return fetchSQL(
         `SELECT id, name, price, image, categorie_ID, description, featured FROM producten WHERE id = ${id}`
     );
 }
-
+//hier haal je alle categorieën uit je database
 async function getAllCategories() {
     return fetchSQL(
         "SELECT id, name, image, categorie_id FROM categories"
     );
 }
 
-
+//hier wacht javascript tot deze zijn ingeladen
 (async () => {
     let hardwareCategories = await getAllCategories();
     let featuredProducts = await getFeaturedProducts();
-
+//hier haal je alle nodige elementen uit je html
     const categorieContainer = document.getElementById("hardwareContainer");
     const featuredContainer = document.getElementById("featuredContainer");
     const zoekterm = document.querySelector("#zoek");
-
+//hier toon je de categorieën op het scherm
     function toonCategorieën(lijst) {
         categorieContainer.innerHTML = "";
         lijst.forEach(item => {
@@ -221,7 +222,7 @@ async function getAllCategories() {
     }
 
     toonCategorieën(hardwareCategories);
-
+//hier toon je de featured producten op je scherm
     function toonFeatured(lijst) {
         featuredContainer.innerHTML = "";
         lijst.forEach(item => {
@@ -239,7 +240,7 @@ async function getAllCategories() {
     }
 
     toonFeatured(featuredProducts);
-
+//hierdoor werkt de zoekbalk en kan je specifieke producten zoeken op de naam.
     zoekterm.addEventListener("input", function () {
         let toetsaanslag = zoekterm.value.toLowerCase();
         let filter = []; 

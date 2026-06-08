@@ -71,7 +71,7 @@
 
 
 (async () => {
-
+// hier roep je jou api aan zodat je js met je database kan praten
     const API = "http://localhost/RAMenNoodles/public/api.php";
 
     async function fetchSQL(sql) {
@@ -79,23 +79,24 @@
         const json = await res.json();
         return json.data;
     }
-
+//hier roep je alle producten op uit je database
     async function getAllProducts() {
         return fetchSQL("SELECT id, name, price, image, categorie_ID, description, featured FROM producten");
     }
-
+//hier roep je alle categorieën op uit je database
     async function getAllCategories() {
         return fetchSQL("SELECT id, name FROM categories");
     }
-
+//hier zoek je naar de exacte plaats van je website op je browser
     const param = window.location.search.split('=')[1];
     const gewensteCategorieNaam = param ? decodeURIComponent(param) : null;
-
+//hier wacht je weer tot alles is ingeladen.
     const products = await getAllProducts();
     const categories = await getAllCategories();
-
+//hier zeg je dat de gewenstecategorieID gelijk is aan niks(geen waarden)
     let gewensteCategorieID = null;
-
+//hier ga je door categorie array loopen als er een waarde zit in gewenstecategorienaam
+//als de namen in kleine letters exact gelijk zijn aan elkaar dan Zet je gewensteCategorieID gelijk aan de id van die categorie.
     if (gewensteCategorieNaam) {
         for (let i = 0; i < categories.length; i++) {
             if (categories[i].name.toLowerCase() === gewensteCategorieNaam.toLowerCase()) {
@@ -103,9 +104,9 @@
             }
         }
     }
-
+//hier maak je een lege array waar je later gefilterde producten insteekt
     let filteredProducts = [];
-
+//als gewenstecategorieID geen waarde heeft dan steek je alle producten in filteredproducts anders ga je door de array products en als je daar dan de categorie_ID vind die gelijk is aan gewenstecategorieID dan steek je die in filteredproducts array.
     if (!gewensteCategorieID) {
         filteredProducts = products;
     } else {
@@ -115,10 +116,10 @@
             }
         }
     }
-
+//hier haal je deze elementen uit je html
     const container = document.getElementById("productsContainer");
     const zoekterm = document.querySelector("#zoek");
-
+//hier toon je al je producten en maak je ze allemaal een a element zodat je erop kan klikken je maakt ook je kaartje hier
     function toonProducten(lijst) {
         container.innerHTML = "";
         lijst.forEach(product => {
@@ -132,7 +133,7 @@
             container.appendChild(card);
         });
     }
-
+//hier toon je alle gefilterde producten voor als je zoekbalk gebruikt.
     toonProducten(filteredProducts);
 
     zoekterm.addEventListener("input", function () {

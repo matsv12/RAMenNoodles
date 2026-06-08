@@ -1,3 +1,4 @@
+//vragen in contact page
 const form = document.getElementById("contactFormulier");
 
     form.addEventListener("submit", function () {

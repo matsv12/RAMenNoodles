@@ -5,31 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>winkelwagen</title>
     <link rel="stylesheet" href="CSS/stijlen.css">
-    <script src="js/cart.js"></script>
+    <script  src="js/cart.js" defer></script>
   </head>
 <body>
  
 <header>
-  <div class="startBalk bestellingHeader">
-    <div class="bovensteRijBestelling">
+  <div class="startBalk">
+    <div class="bovensteRij">
       <div class="logoContainer">
         <img src="Afbeeldingen/logo eindopdracht.png" alt="RAMenNoodles logo" class="logo">
       </div>
-        <h2 class="contact_page">bestelling page</h2>
+
+      <h2 class="pageTitle">winkelwagen page</h2>
     </div>
 
     <nav>
-      <div class="navigatieRijContact">
+      <div class="navigatieRij">
         <a href="index.html">Home</a>
-        <a href="producten.html">products</a>
-        <a href="bestelling.html">shoppingcart</a>
-        <a href="Contacten.html">contact</a>
+        <a href="producten.html">Products</a>
+        <a href="bestelling.html">Shoppingcart</a>
+        <a href="Contacten.html">Contact</a>
       </div>
     </nav>
   </div>
 </header>
+
 <main>
-  <div id="cartContainer"></div>
+  <div class="cart-layout">
+    <div id="cartContainer" class="cart-left"></div>
+    <div id="cartTotalBox" class="cart-right"></div>
+</div>
+
 </main>
 
 
