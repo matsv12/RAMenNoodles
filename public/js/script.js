@@ -204,11 +204,9 @@ async function getAllCategories() {
     const categorieContainer = document.getElementById("hardwareContainer");
     const featuredContainer = document.getElementById("featuredContainer");
     const zoekterm = document.querySelector("#zoek");
-<<<<<<< HEAD
 //hier toon je de categorieën op het scherm
-=======
+
 //hier toon je de categorieën op het scherm. zelfde principe als toonfeatured
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
     function toonCategorieën(lijst) {
         categorieContainer.innerHTML = "";
         lijst.forEach(item => {
@@ -226,11 +224,8 @@ async function getAllCategories() {
     }
 
     toonCategorieën(hardwareCategories);
-<<<<<<< HEAD
 //hier toon je de featured producten op je scherm
-=======
 //hier toon je de featured producten op je scherm voor elk product maak je een kaartje dat aanklikbaar is omdat je het element a eraan geeft. dan ga je naar de pagina product.html en zorg je ervoor dat de id veilig naar daar wordt over gebracht en dat is die unieke id die de gebruiker heeft aangeklikt. en dan steek je het in de class featured-card of je geeft het product deze class.
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
     function toonFeatured(lijst) {
         featuredContainer.innerHTML = "";
         lijst.forEach(item => {
@@ -248,11 +243,8 @@ async function getAllCategories() {
     }
 
     toonFeatured(featuredProducts);
-<<<<<<< HEAD
 //hierdoor werkt de zoekbalk en kan je specifieke producten zoeken op de naam.
-=======
 //hierdoor werkt de zoekbalk en kan je specifieke producten zoeken op de naam. je luistert naar de toetsaanslag van de gebruiker en dan filter je de featured products vervolgens toon je de gefilterde op het scherm als er iets wordt gezocht anders is het gewoon alle items.
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
     zoekterm.addEventListener("input", function () {
         let toetsaanslag = zoekterm.value.toLowerCase();
         let filter = []; 

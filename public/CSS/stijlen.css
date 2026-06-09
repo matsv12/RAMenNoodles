@@ -272,10 +272,7 @@ button{
   color: #2d6df6;
   font-family: "Luckiest Guy", cursive;
   overflow-wrap: anywhere;
-<<<<<<< HEAD
-=======
   text-decoration: none;
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
 }
 
 .product-card {
@@ -302,24 +299,19 @@ button{
 }
 
 .product-title {
-<<<<<<< HEAD
   font-size: 1.2rem;
-=======
   display: flex;
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
   margin-top: 5px;
   color: #2d6df6;
   font-family: "Luckiest Guy", cursive;
   text-align: center;
   font-weight: 700;
   overflow-wrap: anywhere;
-<<<<<<< HEAD
-=======
   text-decoration: none;
 }
+
 a{
   text-decoration: none;
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
 }
 
 #productsContainer {
@@ -383,10 +375,7 @@ a{
   margin: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   transition: 0.3s;
-<<<<<<< HEAD
-=======
   text-decoration: none;
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
 }
 
 .featured-card:hover {

@@ -69,31 +69,22 @@
     addToCart({
         id: parseInt(product.id),
         name: product.name,
-<<<<<<< HEAD
         price: product.price,
-=======
         price: parseFloat(product.price),
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
         image: product.image,
         quantity: 1
     });
 });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
     //als je product niet vindt dan toon je V
     if (!product) {
         document.body.innerHTML = "<h2>Product niet gevonden.</h2>";
         return;
     }
 
-<<<<<<< HEAD
     //hier haal je alle id's uit je html
-=======
+
     //hier haal je alle id's uit je html en geef je ze content.
->>>>>>> 7e9cd12 (crud pagina, winkelwagen)
     document.getElementById("productTitle").textContent = product.name;
     document.getElementById("productName").textContent = product.name;
 
