@@ -74,6 +74,7 @@
         image: product.image,
         quantity: 1
     });
+    alert("Item is toegevoegd aan je winkelwagen!");
 });
 
     //als je product niet vindt dan toon je V
