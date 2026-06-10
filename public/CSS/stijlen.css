@@ -501,3 +501,10 @@ a{
   border: 1px solid #ddd;
   margin-bottom: 15px;
 }
+
+.swal2-confirm {
+  padding: 1rem 2rem !important;
+  font-size: 1rem !important;
+  overflow: visible !important;
+}
+

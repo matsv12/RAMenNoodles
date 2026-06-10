@@ -120,9 +120,15 @@ function removeItem(productId) {
     saveCart(cart);
     renderCart();
 }
+
 function pay() {
-    alert("Je betaling is gelukt!");
+    Swal.fire({
+        title: "Betaling gelukt!",
+        text: "Bedankt voor je aankoop",
+        icon: "success",
+        confirmButtonText: "OK!"
+    });
+
     clearCart();
     renderCart();
 }
-
