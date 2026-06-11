@@ -66,8 +66,8 @@ function renderCart() {
 // om alles te laten zien op het scherm
 function renderCart() {
     const cart = getCart();
-    const left = document.getElementById('cartContainer');
-    const right = document.getElementById('cartTotalBox');
+        const left = document.getElementById("cartContainer");
+        const right = document.getElementById("cartTotalBox");
 
     if (cart.length === 0) {
         left.innerHTML = "<p>Je winkelwagen is leeg.</p>";
